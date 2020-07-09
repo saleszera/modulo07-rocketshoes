@@ -1,10 +1,22 @@
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { darken } from 'polished';
 
 const fade = keyframes`
   from{
     opacity: 0;
     transform: translateY(-100%) translateX(70%) scale(0.1);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+const fade2 = keyframes`
+  from{
+    opacity: 0;
+    transform: scale(0);
   }
   to{
     opacity: 1;
@@ -104,5 +116,40 @@ export const Total = styled.div`
   strong {
     font-size: 28px;
     margin-left: 5px;
+  }
+`;
+
+export const EmptyContainer = styled.div`
+  padding: 30px;
+  background: #fff;
+  border-radius: 4px;
+  animation: ${fade2} 700ms;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: ${fade2} 1000ms;
+  }
+
+  h1 {
+    font-size: 20px;
+    color: #141414;
+    margin: 20px 0px 20px 0px;
+  }
+`;
+
+export const BackMessageLink = styled(Link)`
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  p {
+    font-size: 16px;
+    color: #9999;
   }
 `;
