@@ -26,8 +26,8 @@ export default function Cart() {
   })))
 
   const total = useSelector(state => formatPrice(
-    state.cart.reduce((total, product) => {
-      return total + product.price * product.amount;
+    state.cart.reduce((totalSum, product) => {
+      return totalSum + product.price * product.amount;
     }, 0)
   ))
 
